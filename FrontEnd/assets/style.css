@@ -12,7 +12,7 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
+article, aside, canvas, details, embed, button,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
@@ -53,6 +53,8 @@ body {
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
+
+/* Header */
 header {
 	display: flex;
 	justify-content: space-between;
@@ -98,6 +100,8 @@ nav li {
 li:hover {
 	color: #B1663C;
 }
+
+/* Introduction */
 #introduction {
 	display: flex;
 	align-items: center;
@@ -121,25 +125,59 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+
+/* Portfolio */
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
 }
-.gallery {
+
+#filtres {
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+	padding-bottom: 30px;
+}
+
+.bouton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	cursor: pointer;
+	padding: 10px;
+	height: 37px;
+	min-width:  100px;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 19.2px;
+	color: #1D6154;
+	box-sizing: border-box;
+	background-color: white;
+}
+
+.bouton:active {
+	background-color: #1D6154;
+	color: white;
+}
+
+#gallery {
 	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 20px;
-	grid-row-gap: 20px;
+	background-color: darkcyan;
 }
 
-.gallery img {
+#gallery img {
 	width: 100%;
-
 }
+
+/* Contact */
 #contact {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
 #contact > * {
 	text-align: center;
@@ -180,6 +218,7 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
+/* Footer  */
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
