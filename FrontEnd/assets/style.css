@@ -124,14 +124,10 @@ li:hover {
 
 #introduction p {
 	margin-bottom: 0.5em;
+	width: 404px;
 }
 
-/* Portfolio */
-#portfolio h2 {
-	text-align: center;
-	margin-bottom: 1em;
-}
-
+/* Filtres */
 #filtres {
 	display: flex;
 	gap: 10px;
@@ -139,7 +135,7 @@ li:hover {
 	padding-bottom: 30px;
 }
 
-.bouton {
+#filtres button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -151,27 +147,41 @@ li:hover {
 	min-width:  100px;
 	font-weight: bold;
 	font-size: 16px;
-	line-height: 19.2px;
 	color: #1D6154;
 	box-sizing: border-box;
 	background-color: white;
 }
 
-.bouton:active {
+#filtres button:hover {
 	background-color: #1D6154;
 	color: white;
 }
 
+/* Portfolio */
+#portfolio h2 {
+	text-align: center;
+	margin-bottom: 1em;
+}
+
 #gallery {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-column-gap: 20px;
-	background-color: darkcyan;
+	width: 90%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: left;
+	padding-left: 50px;
+}
+
+#gallery .active {
+	width: 305px;
+}
+
+#gallery .inactive {
+	display: none;
 }
 
 #gallery img {
-	width: 100%;
+	width: 305px;
 }
 
 /* Contact */
