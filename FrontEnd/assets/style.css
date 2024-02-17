@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-color: #FFFEF8;
 }
 ol, ul {
 	list-style: none;
@@ -127,6 +128,55 @@ li:hover {
 	width: 404px;
 }
 
+/* Accès Log In */
+#login {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 600px; 
+}
+
+#login h2 {
+	font-size: 30px;
+	margin-bottom: 40px;
+	text-align: center;
+}
+
+#login input {
+	height: 51px;
+	width: 379px;
+	margin-bottom: 30px;
+	box-sizing: border-box;
+}
+
+#login p {
+	margin-bottom: 10px;
+}
+
+#login_button {
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	cursor: pointer;
+	padding: 10px;
+	height: 36px;
+	width: 179px;
+	color: white;
+	background-color: #1D6154;
+	display: block; 
+    margin: 0 auto;
+}
+
+.oubli {
+	text-align: center;
+	margin-top: 30px;
+}
+
+.oubli a {
+	text-decoration: underline;
+	color: #3d3d3d;
+}
+
 /* Filtres */
 #filtres {
 	display: flex;
@@ -135,7 +185,7 @@ li:hover {
 	padding-bottom: 30px;
 }
 
-#filtres button {
+.btn-filtre {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -152,9 +202,9 @@ li:hover {
 	background-color: white;
 }
 
-#filtres button:hover {
+.btn-filtre.active {
 	background-color: #1D6154;
-	color: white;
+	color: white;	
 }
 
 /* Portfolio */
