@@ -9,32 +9,31 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
-	<script src="script.js" defer></script>
+	<script src="login.js" defer></script>
 </head>
 <body>
-<header>
-	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
-	<nav>
-		<ul>
-			<li>projets</li>
-			<li>contact</li>
-			<li>login</li>
-			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-		</ul>
-	</nav>
-</header>
-<main>
-	<section id="login">
-        <form method="POST" enctype="application/x-www-form-urlencoded" action="authorize">
+	<header>
+		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+		<nav>
+			<ul>
+				<li><a href="#">projets</a></li>
+				<li><a href="#contact">contact</a></li>
+				<li><a href="login.html">login</a></li>
+				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+        <form id="formulaire-login" method="POST" enctype="application/x-www-form-urlencoded" action="authorize">
             <h2>Log In</h2>
             <p>E-mail </p>
-            <input type="email" id="email" pattern=".+@example\.com" size="30" required="required">
+            <input type="email" id="email" required="required">
             <p>Mot de passe </p>
             <input type="password" id="password" required="required">
             <p><button id="login_button" type="submit" name="login" value="true">Se connecter</button></p>
-            <div class="oubli"><a href="#">Mot de passe oublié</a></div>
+			<div id="erreur-connexion"></div>
+			<div class="oubli"><a href="#">Mot de passe oublié</a></div>
         </form>
-    </section>
 </main>
 
 <footer>

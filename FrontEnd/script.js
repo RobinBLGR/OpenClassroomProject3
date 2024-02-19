@@ -19,7 +19,6 @@ const afficherTravaux = () => {
 
 afficherTravaux();
 
-/* Paramètres boutons */
 function filtreTravaux(value) {
 }
 
@@ -52,3 +51,5 @@ for (let btnFiltre of btnFiltres) {
       this.classList.add("active");
     });
 }
+
+/* Affichage du bandeau noir uniquement si je suis connecté */
