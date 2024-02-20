@@ -48,25 +48,6 @@ table {
 	border-spacing: 0;
 }
 /** end reset css**/
-.bandeau-noir {
-	background-color: black;
-	height: 59px;
-	width: 100%;
-	color: white;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 15px;
-	font-size: 16px;
-	position: fixed;
-    top: 0;
-    left: 0;
-}
-
-.fa-pen-to-square {
-	color: white;
-}
-
 body {
 	max-width: 1140px;
 	margin:auto;
@@ -153,9 +134,29 @@ li a{
 	width: 404px;
 }
 
-/* Bandeau noir
- */
+/* Bandeau noir */
+.bandeau-noir {
+	background-color: black;
+	height: 59px;
+	width: 100%;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+	font-size: 16px;
+	position: fixed;
+    top: 0;
+    left: 0;
+}
 
+.bandeau-noir-remove {
+	display: none;
+}
+
+.bandeau-noir .fa-pen-to-square {
+	color: whitesmoke;
+}
 
 /* Accès Log In */
 #formulaire-login {
@@ -212,6 +213,33 @@ li a{
 	color: #3d3d3d;
 }
 
+/* Bouton modifier */
+.projets-modifier {
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+}
+
+.btn-modifier {
+	font-size: 14px;
+	width: 84px;
+	height: 18px;
+	background-color: transparent;
+	border: none;
+	color: #000000;
+	display: flex;
+	gap: 7px;
+	cursor: pointer;
+}
+
+.btn-modifier-remove {
+	display: none;
+}
+
+.fa-pen-to-square {
+	color: black;
+}
+
 /* Filtres */
 #filtres {
 	display: flex;
@@ -229,7 +257,7 @@ li a{
 	cursor: pointer;
 	padding: 10px;
 	height: 37px;
-	min-width:  100px;
+	min-width: 100px;
 	font-weight: bold;
 	font-size: 16px;
 	color: #1D6154;
@@ -242,10 +270,14 @@ li a{
 	color: white;	
 }
 
+.btn-filtre-remove {
+	display: none;
+}
+
 /* Portfolio */
 #portfolio h2 {
 	text-align: center;
-	margin-bottom: 1em;
+	margin-bottom: 2em;
 }
 
 #gallery {
@@ -255,6 +287,7 @@ li a{
 	gap: 20px;
 	justify-content: left;
 	padding-left: 50px;
+	margin-top: 3em;
 }
 
 #gallery .active {
@@ -326,4 +359,61 @@ footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em;
+}
+
+/* Modale galerie photo */
+.modale {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 160px;
+	left: 405px;
+	width: 630px;
+	height: 688px;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.modale-galerie {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 80px;
+	gap: 60px;
+}
+
+.modale-galerie h3 {
+	font-size: 26px;
+}
+
+hr {
+	color: #B3B3B3;
+	width: 420px;
+}
+
+.modale-galerie button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	cursor: pointer;
+	padding: 10px;
+	height: 36px;
+	width:  237px;
+	font-weight: bold;
+	font-size: 16px;
+	color: white;
+	box-sizing: border-box;
+	background-color: #1D6154;
+}
+
+.fa-xmark {
+	position: fixed;
+	width: 24px;
+	height: 24px;
+	top: 686px;
+	left: 981px;
 }

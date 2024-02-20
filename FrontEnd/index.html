@@ -15,7 +15,7 @@
 	<script src="script.js" defer></script>
 </head>
 <body>
-	<div class="bandeau-noir">
+	<div class="bandeau-noir-remove">
 		<i class="fa-regular fa-pen-to-square fa-lg"></i> Mode édition
 	</div>
 <header>
@@ -24,7 +24,7 @@
 		<ul>
 			<li><a href="#">projets</a></li>
 			<li><a href="#contact">contact</a></li>
-			<li><a href="login.html">login</a></li>
+			<li><a href="login.html" class="log">login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -42,16 +42,29 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
-		<!-- Ici s'affiche les filtres -->
-		<div id="filtres">
-			<button id="toutes" class="btn-filtre active">Tous</button>
-			<button id="categorie-1" class="btn-filtre">Objets</button>
-			<button id="categorie-2" class="btn-filtre">Appartements</button> 
-			<button id="categorie-3" class="btn-filtre">Hôtels & restaurants</button>
+		<div class="projets-modifier">
+			<h2>Mes Projets</h2>
+			<button class="btn-modifier-remove">
+				<a href="#modale-modifier" class="modale-js"><i class="fa-regular fa-pen-to-square"></i> Modifier</a>
+			</button>
 		</div>
+		<!-- Ici s'affiche la modale galerie quand je clique sur "modifier" -->
+		<aside id="modale-modifier" class="modale" aria-hidden="true" role="dialog" aria-labelledby="titre-modale" style="display: none;">
+			<div class="modale-galerie">
+				<div class="fermer-modale-js"><i class="fa-solid fa-xmark"></i></div>
+				<h3 id="titre-modale">Galerie photo</h3> 
+				AFFICHER LA GALERIE ICI
+				<hr>
+				<button div="button">Ajouter une photo</button>
+			</div>
+		</aside>
+
+		<!-- Ici s'affichent les filtres -->
+		<div id="filtres"></div>
+
 		<!-- Ici s'affiche dynamiquement la galerie des travaux -->
-		<div id="gallery"></div> 
+		<div id="gallery"></div>
+
 	</section>
 	<section id="contact">
 		<h2>Contact</h2>

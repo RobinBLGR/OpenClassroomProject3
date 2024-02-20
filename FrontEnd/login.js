@@ -21,7 +21,6 @@ document.getElementById("formulaire-login").addEventListener("submit", function 
     .then(data => {
         localStorage.setItem('token', data.token);
         window.location.href = 'index.html';
-        
     })
     .catch(error => {
         document.getElementById("erreur-connexion").textContent = error.message;
