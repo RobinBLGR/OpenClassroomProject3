@@ -62,6 +62,12 @@ header {
 	margin: 50px 0;
 	margin-top: 80px;
 }
+
+header img {
+	height: 22px;
+	width: auto;
+}
+
 section {
 	margin: 50px 0
 }
@@ -217,7 +223,9 @@ li a{
 .projets-modifier {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	gap: 30px;
+	margin: 130px 0 70px 0;
 }
 
 .btn-modifier {
@@ -236,6 +244,11 @@ li a{
 	display: none;
 }
 
+.btn-modifier a {
+	text-decoration: none;
+	color: black;
+}
+
 .fa-pen-to-square {
 	color: black;
 }
@@ -245,7 +258,11 @@ li a{
 	display: flex;
 	gap: 10px;
 	justify-content: center;
-	padding-bottom: 30px;
+	padding-bottom: 20px;
+}
+
+#filtres-remove {
+	display: none;
 }
 
 .btn-filtre {
@@ -275,11 +292,6 @@ li a{
 }
 
 /* Portfolio */
-#portfolio h2 {
-	text-align: center;
-	margin-bottom: 2em;
-}
-
 #gallery {
 	width: 90%;
 	display: flex;
@@ -287,7 +299,7 @@ li a{
 	gap: 20px;
 	justify-content: left;
 	padding-left: 50px;
-	margin-top: 3em;
+	margin-top: 1em;
 }
 
 #gallery .active {
@@ -300,6 +312,19 @@ li a{
 
 #gallery img {
 	width: 305px;
+}
+
+/* Galerie de la modale */
+#gallery-modale {
+	width: 70%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	align-items: center;
+}
+
+#gallery-modale img {
+	height: 102px;
 }
 
 /* Contact */
@@ -367,12 +392,11 @@ footer nav ul {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	top: 160px;
-	left: 405px;
-	width: 630px;
-	height: 688px;
-	background-color: white;
-	border-radius: 10px;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
 }
 
 .modale-galerie {
@@ -380,8 +404,13 @@ footer nav ul {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	width: 630px;
+	height: 688px;
 	margin-top: 80px;
+	border-radius: 10px;	
+	border-radius: 10px;
 	gap: 60px;
+	background-color: white;
 }
 
 .modale-galerie h3 {
@@ -414,6 +443,6 @@ hr {
 	position: fixed;
 	width: 24px;
 	height: 24px;
-	top: 686px;
-	left: 981px;
+	top: 340px;
+	left: 960px;
 }

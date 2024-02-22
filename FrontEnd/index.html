@@ -30,7 +30,7 @@
 	</nav>
 </header>
 <main>
-	<section id="introduction">
+	<section id="introduction" >
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="Sophie Bluel">
 		</figure>
@@ -50,16 +50,16 @@
 		</div>
 		<!-- Ici s'affiche la modale galerie quand je clique sur "modifier" -->
 		<aside id="modale-modifier" class="modale" aria-hidden="true" role="dialog" aria-labelledby="titre-modale" style="display: none;">
-			<div class="modale-galerie">
+			<div class="modale-galerie js-modal-stop">
 				<div class="fermer-modale-js"><i class="fa-solid fa-xmark"></i></div>
 				<h3 id="titre-modale">Galerie photo</h3> 
-				AFFICHER LA GALERIE ICI
+				<div id="gallery-modale"></div>
 				<hr>
 				<button div="button">Ajouter une photo</button>
 			</div>
 		</aside>
 
-		<!-- Ici s'affichent les filtres -->
+		<!-- Ici s'affichent les boutons filtres -->
 		<div id="filtres"></div>
 
 		<!-- Ici s'affiche dynamiquement la galerie des travaux -->
