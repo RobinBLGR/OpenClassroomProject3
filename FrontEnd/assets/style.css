@@ -399,7 +399,7 @@ footer nav ul {
 	background: rgba(0, 0, 0, 0.5);
 }
 
-.modale-galerie {
+.modale-galerie-affichage {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -409,11 +409,11 @@ footer nav ul {
 	margin-top: 80px;
 	border-radius: 10px;	
 	border-radius: 10px;
-	gap: 60px;
+	gap: 35px;
 	background-color: white;
 }
 
-.modale-galerie h3 {
+.modale-galerie-affichage h3 {
 	font-size: 26px;
 }
 
@@ -422,7 +422,7 @@ hr {
 	width: 420px;
 }
 
-.modale-galerie button {
+.modale-galerie-affichage .button-ajouter {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -439,10 +439,137 @@ hr {
 	background-color: #1D6154;
 }
 
+.croix-affichage .fa-xmark {
+	position: fixed;
+	width: 24px;
+	top: 340px;
+	left: 960px;
+}
+
 .fa-xmark {
 	position: fixed;
 	width: 24px;
 	height: 24px;
 	top: 340px;
 	left: 960px;
+}
+
+/* Modale "ajouter photo" */
+.modale-galerie-ajout {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 630px;
+	height: 688px;
+	margin-top: 80px;
+	border-radius: 10px;	
+	border-radius: 10px;
+	gap: 30px;
+	background-color: white;
+	box-sizing: border-box;
+}
+
+.modale-galerie-ajout h3 {
+	font-size: 26px;
+}
+
+hr {
+	color: #B3B3B3;
+	width: 420px;
+}
+
+.button-valider-complet {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 60px;
+	cursor: pointer;
+	padding: 10px;
+	height: 36px;
+	width:  237px;
+	font-weight: bold;
+	font-size: 16px;
+	color: white;
+	box-sizing: border-box;
+	background-color: #1D6154;
+}
+
+.button-valider-incomplet {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 60px;
+	cursor: pointer;
+	padding: 10px;
+	height: 36px;
+	width:  237px;
+	font-weight: bold;
+	font-size: 16px;
+	color: white;
+	box-sizing: border-box;
+	background-color: #A7A7A7;
+}
+
+.croix-ajout .fa-xmark {
+	position: fixed;
+	width: 24px;
+	top: 340px;
+	left: 960px;
+}
+
+.fa-arrow-left {
+	position: fixed;
+	box-sizing: border-box;
+	width: 21px;
+	top: 340px;
+	left: 380px;
+}
+
+.fond-bleu {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	height: 169px;
+	width: 420px;
+	background-color: #E8F1F6;
+}
+
+.fond-bleu p {
+	color: #444444;
+}
+
+.fa-image {
+	color: #CBD6DC;
+}
+
+.btn-ajouter-photo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #CBD6DC;
+	height: 36px;
+	width: 173px;
+	border-radius: 50px;
+	cursor: pointer;
+	color: #306685;
+}
+
+#input-titre {
+	height: 51px;
+	width: 420px;
+	box-sizing: border-box;
+}
+
+#input-categorie {
+	height: 51px;
+	width: 420px;
+}
+
+#formAjout {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
