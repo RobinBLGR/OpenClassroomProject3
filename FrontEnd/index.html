@@ -13,6 +13,7 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer">
 	<link rel="stylesheet" href="./assets/style.css">
 	<script src="script.js" defer></script>
+	<script src="modale.js" defer></script>
 </head>
 <body>
 	<div class="bandeau-noir-remove">
@@ -45,12 +46,13 @@
 		<div class="projets-modifier">
 			<h2>Mes Projets</h2>
 			<button class="btn-modifier-remove">
-				<a href="#modale-modifier" class="modale-js"><i class="fa-regular fa-pen-to-square"></i> Modifier</a>
+				<a href="#" class="modale-js"><i class="fa-regular fa-pen-to-square"></i> Modifier</a>
 			</button>
 		</div>
 		<!-- Ici s'affiche la modale galerie quand je clique sur "modifier" -->
-		<aside id="modale-modifier" class="modale" aria-hidden="true" role="dialog" aria-labelledby="titre-modale" style="display: none;">
-			<div class="modale-galerie-affichage js-modal-stop">
+		<div class="overlay display-none"></div>
+		<aside id="modale-modifier" aria-hidden="true" role="dialog" aria-labelledby="titre-modale" style="display: none;">
+			<div class="modale-galerie-affichage">
 				<div class="fermer-modale-js"><i class="fa-solid fa-xmark"></i></div>
 					<h3 id="titre-modale">Galerie photo</h3> 
 					<div id="gallery-modale"></div>
@@ -58,28 +60,33 @@
 				<button class="button-ajouter">Ajouter une photo</button>
 			</div>
 		<!-- Ici s'affiche la modale "ajout photo" quand je clique sur "ajouter photo " -->
-			<div class="modale-galerie-ajout js-modal-stop2" style="display: none;">
+			<div class="modale-galerie-ajout" style="display: none;">
 				<div class="retour-modale-js"><i class="fa-solid fa-arrow-left"></i></div>
-				<div class="fermer-modale-js"><i class="fa-solid fa-xmark"></i></div>
+				<div class="fermer-modale2-js"><i class="fa-solid fa-xmark"></i></div>
 					<h3 id="titre-modale">Ajout photo</h3> 
 					<div class="fond-bleu">
-						<i class="fa-regular fa-image fa-5x"></i>
-						<input type="file" id="btn-add" accept="image/png, image/jpeg" style="display: none;">
-						<label for="btn-add" id="btn-add" class="btn-ajouter-photo">+ Ajouter photo</label>
-						<p>jpg, png : 4mo max</p>
-					</div>
+						<div id="image-preview"></div>
+						<div id="image-upload-indication">
+							<i class="fa-regular fa-image fa-5x"></i>
 					<form id="formAjout">
+							<input type="file" id="btn-add" accept="image/png, image/jpeg" style="display: none;">
+							<label for="btn-add" id="btn-add-photo" class="btn-ajouter-photo">+ Ajouter photo</label>
+							<p>jpg, png : 4mo max</p>
+							</div>
+					</div>
 						<label for="input-titre">Titre</label>
 						<input id="input-titre" type="text" name="ajout-titre">
 						<label for="input-categorie">Catégorie</label>
 						<select id="input-categorie" name="ajout-categorie"></select>
-					</form>
 					<hr>
 				<button type="submit" id="boutonValider" class="button-valider-incomplet">Valider</button>
+					</form>
+					<div id="messageForm"></div>
 			</div>
 		</aside>
 
-		<!-- Ici s'affichent les boutons filtres -->
+		<!-- Ici s'affichent dynamiquement
+			 les boutons filtres -->
 		<div id="filtres"></div>
 
 		<!-- Ici s'affiche dynamiquement la galerie des travaux -->

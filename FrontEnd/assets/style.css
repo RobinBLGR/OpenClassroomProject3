@@ -47,6 +47,11 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+.display-none {
+	display: none;
+}
+
 /** end reset css**/
 body {
 	max-width: 1140px;
@@ -314,19 +319,6 @@ li a{
 	width: 305px;
 }
 
-/* Galerie de la modale */
-#gallery-modale {
-	width: 70%;
-	display: flex;
-	flex-wrap: wrap;
-	gap: 8px;
-	align-items: center;
-}
-
-#gallery-modale img {
-	height: 102px;
-}
-
 /* Contact */
 #contact {
 	width: 50%;
@@ -387,19 +379,20 @@ footer nav ul {
 }
 
 /* Modale galerie photo */
-.modale {
+.overlay {
+	background-color: rgba(0, 0, 0, 0.5);
+	height: 100vh;
+	width: 100vw;
 	position: fixed;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	top: 0;
 	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.5);
 }
 
 .modale-galerie-affichage {
+	position: fixed;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -439,23 +432,33 @@ hr {
 	background-color: #1D6154;
 }
 
-.croix-affichage .fa-xmark {
-	position: fixed;
-	width: 24px;
-	top: 340px;
-	left: 960px;
-}
-
 .fa-xmark {
-	position: fixed;
+	position: absolute;
 	width: 24px;
 	height: 24px;
-	top: 340px;
-	left: 960px;
+	top: 15px;
+	right: 15px;
+}
+
+/* Galerie de la modale */
+#gallery-modale {
+	width: 70%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	align-items: center;
+}
+
+#gallery-modale img {
+	height: 102px;
 }
 
 /* Modale "ajouter photo" */
 .modale-galerie-ajout {
+	position: fixed;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -465,9 +468,8 @@ hr {
 	margin-top: 80px;
 	border-radius: 10px;	
 	border-radius: 10px;
-	gap: 30px;
+	gap: 20px;
 	background-color: white;
-	box-sizing: border-box;
 }
 
 .modale-galerie-ajout h3 {
@@ -511,19 +513,12 @@ hr {
 	background-color: #A7A7A7;
 }
 
-.croix-ajout .fa-xmark {
-	position: fixed;
-	width: 24px;
-	top: 340px;
-	left: 960px;
-}
-
 .fa-arrow-left {
-	position: fixed;
-	box-sizing: border-box;
-	width: 21px;
-	top: 340px;
-	left: 380px;
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	top: 15px;
+	left: 20px;
 }
 
 .fond-bleu {
@@ -572,4 +567,8 @@ hr {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+}
+
+#messageForm {
+	font-size: 16px;
 }
