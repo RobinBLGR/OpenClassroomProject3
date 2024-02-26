@@ -386,6 +386,7 @@ footer nav ul {
 	position: fixed;
 	top: 0;
 	left: 0;
+	z-index: 1;
 }
 
 .modale-galerie-affichage {
@@ -404,6 +405,7 @@ footer nav ul {
 	border-radius: 10px;
 	gap: 35px;
 	background-color: white;
+	z-index: 2;
 }
 
 .modale-galerie-affichage h3 {
@@ -451,6 +453,29 @@ hr {
 
 #gallery-modale img {
 	height: 102px;
+}
+
+/* Supprimer photo dans la modale */
+
+.photo-container {
+	position: relative;
+}
+
+.photo-container span {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	right: 5%;
+	top: 5%;
+	background-color: black;
+	width: 17px;
+	height: 17px;
+	border-radius: 2px;
+}
+
+.photo-container span i {
+	color: white;
 }
 
 /* Modale "ajouter photo" */

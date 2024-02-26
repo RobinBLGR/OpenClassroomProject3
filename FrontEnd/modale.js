@@ -43,12 +43,20 @@ async function afficherTravauxModale() {
             container.classList.add('photo-container');
             container.dataset.category = photo.categoryId;
 
+            const span = document.createElement('span')
+            const poubelle = document.createElement('i')
+            poubelle.classList.add('fa-solid', 'fa-trash-can', 'fa-xs')
+
             const img = document.createElement('img');
             img.src = photo.imageUrl;
             img.alt = photo.title;
             img.classList.add('active');
+            img.id = photo.id;
 
             container.appendChild(img);
+            container.appendChild(span);
+
+            span.appendChild(poubelle);
 
             gallery.appendChild(container);
         });
@@ -56,6 +64,8 @@ async function afficherTravauxModale() {
         console.error('Erreur lors du chargement des photos', error);
     }
 }
+
+
 
 afficherTravauxModale()
 
@@ -77,42 +87,33 @@ function LogOut() {
 LogOut()
 
 /* Possiblité de supprimer des travaux de la galerie lorsque je suis connecté */
-function supprimerTravaux(id) {
-    const token = recupererToken();
-
-    if (!token) {
-        console.error('Erreur : vous ne vous êtes pas authentifié');
-        return;
-    }
-
-    const options = {
-        method: 'DELETE',
-        headers: {
-            'Authorization': 'Bearer ${token}',
-            'Content-Type': 'application/json'
-        }
-    };
-
-    fetch('http://localhost:5678/api/works/${id}', options)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('La suppression de travaux existants a échoué');
+const SupprimerTravaux = async (id) => {
+    try {
+        const res = await fetch(`http://localhost:5678/api/works/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json'
             }
-            actualiserDOM();
-        })
-        .catch(error => {
-            console.error('Erreur lors de la suppression du travail', error);
         });
+        if (!res.ok) {
+            throw new Error('La suppression du travail a échoué.');
+        }
+    } catch (error) {
+        console.error('Erreur lors de la suppression.', error);
+    }
 }
 
+const images = document.querySelectorAll('.photo-container img');
+console.log(images)
+images.forEach(image => {
+    image.addEventListener('click', function() {
+        const id = this.getAttribute("id");
+        console.log(id);
+    });
+});
 
-/* ci-dessus code pour la fonction supprimerTravaux. 
-supprimerTravaux()
 
-Il faudra rajouter ensuite un écouteur d'évenement qui récupère l'id de l'image et la supprime 
-User
-j'ai une galerie qui s'affiche dynamiquement avec javascript et appel à l'API http://localhost:5678/api/works. Avec le code que tu m'as donné au dessus, je veux que lorsque je clique sur une des images de la galerie, ça me la supprime. COmment faire?
-*/
 
 /* Changement de la modale "galerie photo" à "ajouter photo" au clic sur "ajouter" */
 const bouton = document.querySelector('.button-ajouter');
