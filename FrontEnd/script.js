@@ -1,4 +1,4 @@
-/* Affichage dynamique de la galerie - function afficherTravaux */
+/* Affichage dynamique de la galerie */
 async function afficherTravaux() {
     try {
         const response = await fetch('http://localhost:5678/api/works');
@@ -28,6 +28,9 @@ async function afficherTravaux() {
     }
 }
 
+afficherTravaux();
+
+/* Filtre des travaux en fonction de la catégorie sélectionnée */
 function filtreTravaux() {
     const etiquette = this.id.split("-")[1];
     const filters = document.querySelectorAll(".btn-filtre"); // Sélectionnez tous les boutons filtres
@@ -53,6 +56,7 @@ function filtreTravaux() {
     }
 }
 
+/* Affichage en couleur uniquement du bouton filtre de la catégorie sélectionnéeq   <<<< */
 const filters = document.getElementById("filtres");
 fetch("http://localhost:5678/api/categories")
     .then(response => response.json())
@@ -73,8 +77,6 @@ fetch("http://localhost:5678/api/categories")
             filter.addEventListener("click", filtreTravaux);
         }
     });
-
-afficherTravaux();
 
 /* Récupération du token */
 const token = localStorage.getItem("token");
