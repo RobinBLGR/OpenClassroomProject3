@@ -58,8 +58,9 @@
 					<div id="gallery-modale"></div>
 					<hr>
 				<button class="button-ajouter">Ajouter une photo</button>
+				<div id="messageFormSupp"></div>
 			</div>
-		<!-- Ici s'affiche la modale "ajout photo" quand je clique sur "ajouter photo " -->
+			<!-- Ici s'affiche la modale "ajout photo" quand je clique sur "ajouter photo " -->
 			<div class="modale-galerie-ajout" style="display: none;">
 				<div class="retour-modale-js"><i class="fa-solid fa-arrow-left"></i></div>
 				<div class="fermer-modale2-js"><i class="fa-solid fa-xmark"></i></div>
@@ -68,6 +69,7 @@
 						<div id="image-preview"></div>
 						<div id="image-upload-indication">
 							<i class="fa-regular fa-image fa-5x"></i>
+					<!-- Ici s'affiche le formulaire d'ajout de photo -->
 					<form id="formAjout">
 							<input type="file" id="btn-add" accept="image/png, image/jpeg" style="display: none;">
 							<label for="btn-add" id="btn-add-photo" class="btn-ajouter-photo">+ Ajouter photo</label>
@@ -81,7 +83,7 @@
 					<hr>
 				<button type="submit" id="boutonValider" class="button-valider-incomplet">Valider</button>
 					</form>
-					<div id="messageForm"></div>
+					<div id="messageFormAjout"></div>
 			</div>
 		</aside>
 

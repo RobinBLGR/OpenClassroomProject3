@@ -3,7 +3,7 @@ function recupererToken() {
     return localStorage.getItem('token');
 }
 
-/* Affichage et fermeture clic croix ou extérieur de la modale "galerie photo" */
+/* Affichage et fermeture clic sur croix ou extérieur de la modale "galerie photo" */
 const boutonModifier = document.querySelector('.projets-modifier button');
 const modaleModifier = document.getElementById('modale-modifier');
 const overlay = document.querySelector('.overlay');
@@ -33,10 +33,14 @@ overlay.addEventListener('click', function() {
 
 /* Affichage de la galerie dans la modale */
 async function afficherTravauxModale() {
+
     try {
-        const response = await fetch('http://localhost:5678/api/works');
+        const response = await fetch('http://localhost:5678/api/works', {
+            method: 'GET'
+        });
         const data = await response.json();
         const gallery = document.getElementById('gallery-modale');
+        gallery.innerHTML= '';
 
         data.forEach(photo => {
             const container = document.createElement('div');
@@ -46,12 +50,12 @@ async function afficherTravauxModale() {
             const span = document.createElement('span')
             const poubelle = document.createElement('i')
             poubelle.classList.add('fa-solid', 'fa-trash-can', 'fa-xs')
+            span.id = photo.id;
 
             const img = document.createElement('img');
             img.src = photo.imageUrl;
             img.alt = photo.title;
             img.classList.add('active');
-            img.id = photo.id;
 
             container.appendChild(img);
             container.appendChild(span);
@@ -63,9 +67,19 @@ async function afficherTravauxModale() {
     } catch (error) {
         console.error('Erreur lors du chargement des photos', error);
     }
+
+    const spans = document.querySelectorAll('#gallery-modale .photo-container span');
+
+    spans.forEach(span => {
+    span.addEventListener('click', function() {
+        const id = this.getAttribute("id");
+
+        SupprimerTravaux(id);
+        afficherTravauxModale();
+        afficherTravaux();
+    });
+});
 }
-
-
 
 afficherTravauxModale()
 
@@ -89,31 +103,24 @@ LogOut()
 /* Possiblité de supprimer des travaux de la galerie lorsque je suis connecté */
 const SupprimerTravaux = async (id) => {
     try {
-        const res = await fetch(`http://localhost:5678/api/works/${id}`, {
+        const response = await fetch(`http://localhost:5678/api/works/${id}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': 'Bearer ' + token,
                 'Content-Type': 'application/json'
             }
         });
-        if (!res.ok) {
+        if (response.ok) {
+            afficherMessageSuccesSupp("La suppression de l'image a bien été prise en compte");
+        } else {
             throw new Error('La suppression du travail a échoué.');
         }
     } catch (error) {
         console.error('Erreur lors de la suppression.', error);
     }
+afficherTravaux();
+afficherTravauxModale();
 }
-
-const images = document.querySelectorAll('.photo-container img');
-console.log(images)
-images.forEach(image => {
-    image.addEventListener('click', function() {
-        const id = this.getAttribute("id");
-        console.log(id);
-    });
-});
-
-
 
 /* Changement de la modale "galerie photo" à "ajouter photo" au clic sur "ajouter" */
 const bouton = document.querySelector('.button-ajouter');
@@ -121,7 +128,7 @@ const modaleGalerie = document.querySelector('.modale-galerie-affichage')
 const modaleAjout = document.querySelector('.modale-galerie-ajout');
 
 bouton.addEventListener('click', function() {
-    bouton.parentElement.style.display = 'none';
+    modaleGalerie.style.display = 'none';
     modaleAjout.style.display = 'flex';
 });
 
@@ -198,28 +205,35 @@ document.getElementById('formAjout').addEventListener('submit', function(event) 
             'Authorization': 'Bearer ' + token 
         }
     })
-
-.then(response => {
+    .then(response => {
     if(response.ok) {
         return response.json();
     } else {
         throw new Error("Erreur lors de l'envoi du formulaire.");
     }
-})
-.then(data => {
-    afficherMessageSucces("Le formulaire a été envoyé avec succès");
-})
-.catch(error => {
-    afficherMessageErreur(error.message);
-});
+    })
+    .then(data => {
+    afficherMessageSuccesAjout("L'image a été chargée avec succès");
+    console.log("L'image a été chargée avec succès")
+    afficherTravaux();
+    afficherTravauxModale();
+    document.getElementById('image-preview').innerHTML = '';
+    document.getElementById('image-upload-indication').style.display = 'flex';
+    });
 });
 
-function afficherMessageSucces(message) {
-    document.getElementById("messageForm").innerHTML = `<div class="success">${message}</div>`;
+function submitFormAjout () {
+    document.formAjout.submit();
+    document.formAjout.reset();
 }
 
-function afficherMessageErreur(message) {
-    document.getElementById("messageForm").innerHTML = `<div class="error">${message}</div>`;
+/* Messages de succès à l'ajout ou suppression d'une photo */
+function afficherMessageSuccesSupp(message) {
+    document.getElementById("messageFormSupp").innerHTML = `<div class="success">${message}</div>`;
+}
+
+function afficherMessageSuccesAjout(message) {
+    document.getElementById("messageFormAjout").innerHTML = `<div class="success">${message}</div>`;
 }
 
 /* Aperçu de la miniature de l'image lorsqu'elle est chargée */
@@ -231,18 +245,18 @@ document.getElementById('btn-add').addEventListener('change', function(event) {
     if (imageInput) {
         let reader = new FileReader();
         reader.onload = function(e) {
-            // Créer l'élément <img>
+            // Je crée l'élément <img>
             let imgPreview = document.createElement('img');
             imgPreview.src = e.target.result;
             imgPreview.alt = "Aperçu de l'image chargée";
             imgPreview.style.maxWidth = "129px";
             imgPreview.style.display = 'block';
 
-            // Ajouter l'élément <img> au conteneur d'aperçu d'image
+            // J'ajoute l'élément <img> au conteneur d'aperçu d'image
             imgPreviewContainer.innerHTML = '';
             imgPreviewContainer.appendChild(imgPreview);
 
-            // Cacher le contenu de téléchargement d'image
+            // Je cache le contenu de téléchargement d'image
             imageUploadIndication.style.display = 'none';
         };
         reader.readAsDataURL(imageInput);
@@ -252,7 +266,3 @@ document.getElementById('btn-add').addEventListener('change', function(event) {
 });
 
 
-/* Récupération du token d'authentification */
-function recupererToken() {
-    return localStorage.getItem('token');
-}

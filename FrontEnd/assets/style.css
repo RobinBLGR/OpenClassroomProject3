@@ -159,6 +159,7 @@ li a{
 	position: fixed;
     top: 0;
     left: 0;
+	z-index: 1;
 }
 
 .bandeau-noir-remove {
@@ -391,7 +392,7 @@ footer nav ul {
 
 .modale-galerie-affichage {
 	position: fixed;
-	top: 20%;
+	top: 5px;
 	left: 50%;
 	transform: translate(-50%);
 	display: flex;
@@ -481,7 +482,7 @@ hr {
 /* Modale "ajouter photo" */
 .modale-galerie-ajout {
 	position: fixed;
-	top: 20%;
+	top: 5px;
 	left: 50%;
 	transform: translate(-50%);
 	display: flex;
@@ -495,6 +496,7 @@ hr {
 	border-radius: 10px;
 	gap: 20px;
 	background-color: white;
+	z-index: 2;
 }
 
 .modale-galerie-ajout h3 {
@@ -549,7 +551,6 @@ hr {
 .fond-bleu {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
 	gap: 10px;
 	height: 169px;
@@ -559,6 +560,15 @@ hr {
 
 .fond-bleu p {
 	color: #444444;
+	font-size: 10px;
+	text-align: center;
+}
+
+#image-upload-indication {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
 }
 
 .fa-image {
@@ -580,12 +590,13 @@ hr {
 #input-titre {
 	height: 51px;
 	width: 420px;
-	box-sizing: border-box;
+	box-shadow: 0 4px 14px rgb(0 0 0 / 0.09);
 }
 
 #input-categorie {
 	height: 51px;
 	width: 420px;
+	box-shadow: 0 4px 14px rgb(0 0 0 / 0.09);
 }
 
 #formAjout {

@@ -1,9 +1,12 @@
 /* Affichage dynamique de la galerie */
 async function afficherTravaux() {
     try {
-        const response = await fetch('http://localhost:5678/api/works');
+        const response = await fetch('http://localhost:5678/api/works', {
+            method: 'GET'
+        });
         const data = await response.json();
         const gallery = document.getElementById('gallery');
+        gallery.innerHTML= "";
 
         data.forEach(photo => {
             const container = document.createElement('div');
@@ -35,12 +38,12 @@ function filtreTravaux() {
     const etiquette = this.id.split("-")[1];
     const filters = document.querySelectorAll(".btn-filtre"); // Sélectionnez tous les boutons filtres
 
-    // Supprimez la classe "active" de tous les boutons filtres
+    // Je supprime la classe "active" de tous les boutons filtres
     filters.forEach(filter => {
         filter.classList.remove("active");
     });
 
-    // Ajoutez la classe "active" uniquement au bouton cliqué
+    // J'ajoute la classe "active" uniquement au bouton cliqué
     this.classList.add("active");
 
     const containers = document.querySelectorAll("#gallery .photo-container");
@@ -56,7 +59,7 @@ function filtreTravaux() {
     }
 }
 
-/* Affichage en couleur uniquement du bouton filtre de la catégorie sélectionnéeq   <<<< */
+/* Affichage en couleur uniquement du bouton filtre de la catégorie sélectionnéeq */
 const filters = document.getElementById("filtres");
 fetch("http://localhost:5678/api/categories")
     .then(response => response.json())
@@ -80,11 +83,6 @@ fetch("http://localhost:5678/api/categories")
 
 /* Récupération du token */
 const token = localStorage.getItem("token");
-
-/* Récupération du token d'authentification */
-function recupererToken() {
-    return localStorage.getItem('token');
-}
 
 /* Affichage du bandeau noir, bouton modifier et disparition du filtre quand je suis connecté */
 function modeEdition() {
