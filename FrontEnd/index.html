@@ -8,24 +8,32 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+	integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+	crossorigin="anonymous" referrerpolicy="no-referrer">
 	<link rel="stylesheet" href="./assets/style.css">
+	<script src="script.js" defer></script>
+	<script src="modale.js" defer></script>
 </head>
 <body>
+	<div class="bandeau-noir-remove">
+		<i class="fa-regular fa-pen-to-square fa-lg"></i> Mode édition
+	</div>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
-			<li>projets</li>
-			<li>contact</li>
-			<li>login</li>
+			<li><a href="#">projets</a></li>
+			<li><a href="#contact">contact</a></li>
+			<li><a href="login.html" class="log">login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
 </header>
 <main>
-	<section id="introduction">
+	<section id="introduction" >
 		<figure>
-			<img src="./assets/images/sophie-bluel.png" alt="">
+			<img src="./assets/images/sophie-bluel.png" alt="Sophie Bluel">
 		</figure>
 		<article>
 			<h2>Designer d'espace</h2>
@@ -35,53 +43,56 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projetssssssss</h2>
-		<div class="gallery">
-			<figure>
-				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
-				<figcaption>Abajour Tahina</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V">
-				<figcaption>Appartement Paris V</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres">
-				<figcaption>Restaurant Sushisen - Londres</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis">
-				<figcaption>Villa “La Balisiere” - Port Louis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis">
-				<figcaption>Structures Thermopolis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X">
-				<figcaption>Appartement Paris X</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis">
-				<figcaption>Pavillon “Le coteau” - Cassis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola d’Elba">
-				<figcaption>Villa Ferneze - Isola d’Elba</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII">
-				<figcaption>Appartement Paris XVIII</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris">
-				<figcaption>Bar “Lullaby” - Paris</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
-				<figcaption>Hotel First Arte - New Delhi</figcaption>
-			</figure>
+		<div class="projets-modifier">
+			<h2>Mes Projets</h2>
+			<button class="btn-modifier-remove">
+				<a href="#" class="modale-js"><i class="fa-regular fa-pen-to-square"></i> Modifier</a>
+			</button>
 		</div>
+		<!-- Ici s'affiche la modale galerie quand je clique sur "modifier" -->
+		<div class="overlay display-none"></div>
+		<aside id="modale-modifier" style="display: none;">
+			<div class="modale-galerie-affichage">
+				<div class="fermer-modale-js"><i class="fa-solid fa-xmark"></i></div>
+					<h3>Galerie photo</h3> 
+					<div id="gallery-modale"></div>
+					<hr>
+					<button class="button-ajouter">Ajouter une photo</button>
+				<div id="messageFormSupp"></div>
+			</div>
+			<!-- Ici s'affiche la modale "ajout photo" quand je clique sur "ajouter photo " -->
+			<div class="modale-galerie-ajout" style="display: none;">
+				<div class="retour-modale-js"><i class="fa-solid fa-arrow-left"></i></div>
+				<div class="fermer-modale2-js"><i class="fa-solid fa-xmark"></i></div>
+				<h3>Ajout photo</h3> 
+					<div class="fond-bleu">
+						<div id="image-preview"></div>
+						<div id="image-upload-indication">
+							<i class="fa-regular fa-image fa-5x"></i>
+						<!-- Ici s'affiche le formulaire d'ajout de photo -->
+							<form id="formAjout">
+								<input type="file" id="btn-add" accept="image/png, image/jpeg" style="display: none;">
+								<label for="btn-add" id="btn-add-photo" class="btn-ajouter-photo">+ Ajouter photo</label>
+								<p>jpg, png : 4mo max</p>
+						</div>
+					</div>
+								<label for="input-titre" class="donnees">Titre</label>
+								<input id="input-titre" type="text" name="ajout-titre">
+								<label for="input-categorie" class="donnees">Catégorie</label>
+								<select id="input-categorie" name="ajout-categorie"></select>
+								<hr>
+								<button type="submit" id="boutonValider" class="button-valider-incomplet">Valider</button>
+							</form>
+								<div id="messageFormAjout"></div>
+			</div>
+		</aside>
+
+		<!-- Ici s'affichent dynamiquement les boutons filtres -->
+		<div id="filtres"></div>
+
+		<!-- Ici s'affiche dynamiquement la galerie des travaux -->
+		<div id="gallery"></div>
+
 	</section>
 	<section id="contact">
 		<h2>Contact</h2>
@@ -105,5 +116,6 @@
 		</ul>
 	</nav>
 </footer>
+
 </body>
 </html>

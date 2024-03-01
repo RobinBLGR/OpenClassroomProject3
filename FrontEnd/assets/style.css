@@ -12,7 +12,7 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
+article, aside, canvas, details, embed, button,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-color: #FFFEF8;
 }
 ol, ul {
 	list-style: none;
@@ -46,6 +47,11 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+.display-none {
+	display: none;
+}
+
 /** end reset css**/
 body {
 	max-width: 1140px;
@@ -53,11 +59,20 @@ body {
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
+
+/* Header */
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+	margin: 50px 0;
+	margin-top: 80px;
 }
+
+header img {
+	height: 22px;
+	width: auto;
+}
+
 section {
 	margin: 50px 0
 }
@@ -95,9 +110,16 @@ nav li {
 	font-size: 1.2em;
 }
 
-li:hover {
+li a:hover {
 	color: #B1663C;
 }
+
+li a{
+	text-decoration: none;
+	color: #000000;
+}
+
+/* Introduction */
 #introduction {
 	display: flex;
 	align-items: center;
@@ -120,26 +142,188 @@ li:hover {
 
 #introduction p {
 	margin-bottom: 0.5em;
+	width: 404px;
 }
-#portfolio h2 {
+
+/* Bandeau noir */
+.bandeau-noir {
+	background-color: black;
+	height: 59px;
+	width: 100%;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+	font-size: 16px;
+	position: fixed;
+    top: 0;
+    left: 0;
+	z-index: 1;
+}
+
+.bandeau-noir-remove {
+	display: none;
+}
+
+.bandeau-noir .fa-pen-to-square {
+	color: whitesmoke;
+}
+
+/* Accès Log In */
+#formulaire-login {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 100px;
+	height: 900px; 
+}
+
+#formulaire-login h2 {
+	font-size: 30px;
+	margin-bottom: 40px;
 	text-align: center;
-	margin-bottom: 1em;
-}
-.gallery {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-column-gap: 20px;
-	grid-row-gap: 20px;
 }
 
-.gallery img {
-	width: 100%;
-
+#formulaire-login input {
+	height: 51px;
+	width: 379px;
+	margin-bottom: 30px;
+	box-sizing: border-box;
 }
+
+#formulaire-login p {
+	margin-bottom: 10px;
+}
+
+#login_button {
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	cursor: pointer;
+	padding: 10px;
+	height: 36px;
+	width: 179px;
+	color: white;
+	background-color: #1D6154;
+	display: block; 
+    margin: 0 auto;
+}
+
+#erreur-connexion {
+	color: red;
+	font-weight: bold;
+	padding-top: 30px;
+}
+
+.oubli {
+	text-align: center;
+	margin-top: 30px;
+}
+
+.oubli a {
+	text-decoration: underline;
+	color: #3d3d3d;
+}
+
+/* Bouton modifier */
+.projets-modifier {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+	margin: 130px 0 70px 0;
+}
+
+.btn-modifier {
+	font-size: 14px;
+	width: 84px;
+	height: 18px;
+	background-color: transparent;
+	border: none;
+	color: #000000;
+	display: flex;
+	gap: 7px;
+	cursor: pointer;
+}
+
+.btn-modifier-remove {
+	display: none;
+}
+
+.btn-modifier a {
+	text-decoration: none;
+	color: black;
+}
+
+.fa-pen-to-square {
+	color: black;
+}
+
+/* Filtres */
+#filtres {
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+	padding-bottom: 20px;
+}
+
+#filtres-remove {
+	display: none;
+}
+
+.btn-filtre {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	cursor: pointer;
+	padding: 10px;
+	height: 37px;
+	min-width: 100px;
+	font-weight: bold;
+	font-size: 16px;
+	color: #1D6154;
+	box-sizing: border-box;
+	background-color: white;
+}
+
+.btn-filtre.active {
+	background-color: #1D6154;
+	color: white;	
+}
+
+.btn-filtre-remove {
+	display: none;
+}
+
+/* Portfolio */
+#gallery {
+	width: 90%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: left;
+	padding-left: 50px;
+	margin-top: 1em;
+}
+
+#gallery .active {
+	width: 305px;
+}
+
+#gallery .inactive {
+	display: none;
+}
+
+#gallery img {
+	width: 305px;
+}
+
+/* Contact */
 #contact {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
 #contact > * {
 	text-align: center;
@@ -180,9 +364,252 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
+/* Footer  */
+footer {
+	height: 60px;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: right;
+}
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2em;
 }
 
+/* Modale galerie photo */
+.overlay {
+	background-color: rgba(0, 0, 0, 0.5);
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.modale-galerie-affichage {
+	position: fixed;
+	top: 5px;
+	left: 50%;
+	transform: translate(-50%);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 630px;
+	height: 688px;
+	margin-top: 80px;
+	border-radius: 10px;	
+	border-radius: 10px;
+	gap: 35px;
+	background-color: white;
+	z-index: 2;
+}
+
+.modale-galerie-affichage h3 {
+	font-size: 26px;
+}
+
+hr {
+	color: #B3B3B3;
+	width: 420px;
+}
+
+.modale-galerie-affichage .button-ajouter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	cursor: pointer;
+	padding: 10px;
+	height: 36px;
+	width:  237px;
+	font-weight: bold;
+	font-size: 16px;
+	color: white;
+	box-sizing: border-box;
+	background-color: #1D6154;
+}
+
+.fa-xmark {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	top: 15px;
+	right: 15px;
+}
+
+/* Galerie de la modale */
+#gallery-modale {
+	width: 70%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	align-items: center;
+}
+
+#gallery-modale img {
+	height: 102px;
+}
+
+/* Supprimer photo dans la modale */
+
+.photo-container {
+	position: relative;
+}
+
+.photo-container span {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	right: 5%;
+	top: 5%;
+	background-color: black;
+	width: 17px;
+	height: 17px;
+	border-radius: 2px;
+}
+
+.photo-container span i {
+	color: white;
+}
+
+/* Modale "ajouter photo" */
+.modale-galerie-ajout {
+	position: fixed;
+	top: 5px;
+	left: 50%;
+	transform: translate(-50%);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 630px;
+	height: 688px;
+	margin-top: 80px;
+	border-radius: 10px;	
+	border-radius: 10px;
+	gap: 20px;
+	background-color: white;
+	z-index: 2;
+}
+
+.modale-galerie-ajout h3 {
+	font-size: 26px;
+}
+
+hr {
+	color: #B3B3B3;
+	width: 420px;
+}
+
+.button-valider-complet {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 60px;
+	cursor: pointer;
+	padding: 10px;
+	height: 36px;
+	width:  237px;
+	font-weight: bold;
+	font-size: 16px;
+	color: white;
+	box-sizing: border-box;
+	background-color: #1D6154;
+}
+
+.button-valider-incomplet {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 60px;
+	cursor: pointer;
+	padding: 10px;
+	height: 36px;
+	width:  237px;
+	font-weight: bold;
+	font-size: 16px;
+	color: white;
+	box-sizing: border-box;
+	background-color: #A7A7A7;
+}
+
+.fa-arrow-left {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	top: 15px;
+	left: 20px;
+}
+
+.fond-bleu {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	height: 169px;
+	width: 420px;
+	background-color: #E8F1F6;
+}
+
+.fond-bleu p {
+	color: #444444;
+	font-size: 10px;
+	text-align: center;
+}
+
+#image-upload-indication {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+.fa-image {
+	color: #CBD6DC;
+}
+
+.btn-ajouter-photo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #CBD6DC;
+	height: 36px;
+	width: 173px;
+	border-radius: 50px;
+	cursor: pointer;
+	color: #306685;
+}
+
+#input-titre {
+	height: 51px;
+	width: 420px;
+	box-shadow: 0 4px 14px rgb(0 0 0 / 0.09);
+}
+
+#input-categorie {
+	height: 51px;
+	width: 420px;
+	box-shadow: 0 4px 14px rgb(0 0 0 / 0.09);
+}
+
+#formAjout {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.donnees {
+	text-align: left !important;
+	color: red;
+}
+
+#messageForm {
+	font-size: 16px;
+}
