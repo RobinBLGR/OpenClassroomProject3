@@ -51,39 +51,39 @@
 		</div>
 		<!-- Ici s'affiche la modale galerie quand je clique sur "modifier" -->
 		<div class="overlay display-none"></div>
-		<aside id="modale-modifier" aria-hidden="true" role="dialog" aria-labelledby="titre-modale" style="display: none;">
+		<aside id="modale-modifier" style="display: none;">
 			<div class="modale-galerie-affichage">
 				<div class="fermer-modale-js"><i class="fa-solid fa-xmark"></i></div>
-					<h3 id="titre-modale">Galerie photo</h3> 
+					<h3>Galerie photo</h3> 
 					<div id="gallery-modale"></div>
 					<hr>
-				<button class="button-ajouter">Ajouter une photo</button>
+					<button class="button-ajouter">Ajouter une photo</button>
 				<div id="messageFormSupp"></div>
 			</div>
 			<!-- Ici s'affiche la modale "ajout photo" quand je clique sur "ajouter photo " -->
 			<div class="modale-galerie-ajout" style="display: none;">
 				<div class="retour-modale-js"><i class="fa-solid fa-arrow-left"></i></div>
 				<div class="fermer-modale2-js"><i class="fa-solid fa-xmark"></i></div>
-					<h3 id="titre-modale">Ajout photo</h3> 
+				<h3>Ajout photo</h3> 
 					<div class="fond-bleu">
 						<div id="image-preview"></div>
 						<div id="image-upload-indication">
 							<i class="fa-regular fa-image fa-5x"></i>
-					<!-- Ici s'affiche le formulaire d'ajout de photo -->
-					<form id="formAjout">
-							<input type="file" id="btn-add" accept="image/png, image/jpeg" style="display: none;">
-							<label for="btn-add" id="btn-add-photo" class="btn-ajouter-photo">+ Ajouter photo</label>
-							<p>jpg, png : 4mo max</p>
-							</div>
+						<!-- Ici s'affiche le formulaire d'ajout de photo -->
+							<form id="formAjout">
+								<input type="file" id="btn-add" accept="image/png, image/jpeg" style="display: none;">
+								<label for="btn-add" id="btn-add-photo" class="btn-ajouter-photo">+ Ajouter photo</label>
+								<p>jpg, png : 4mo max</p>
+						</div>
 					</div>
-						<label for="input-titre">Titre</label>
-						<input id="input-titre" type="text" name="ajout-titre">
-						<label for="input-categorie">Catégorie</label>
-						<select id="input-categorie" name="ajout-categorie"></select>
-					<hr>
-				<button type="submit" id="boutonValider" class="button-valider-incomplet">Valider</button>
-					</form>
-					<div id="messageFormAjout"></div>
+								<label for="input-titre" class="donnees">Titre</label>
+								<input id="input-titre" type="text" name="ajout-titre">
+								<label for="input-categorie" class="donnees">Catégorie</label>
+								<select id="input-categorie" name="ajout-categorie"></select>
+								<hr>
+								<button type="submit" id="boutonValider" class="button-valider-incomplet">Valider</button>
+							</form>
+								<div id="messageFormAjout"></div>
 			</div>
 		</aside>
 

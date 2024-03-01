@@ -605,6 +605,11 @@ hr {
 	gap: 10px;
 }
 
+.donnees {
+	text-align: left !important;
+	color: red;
+}
+
 #messageForm {
 	font-size: 16px;
 }

@@ -3,34 +3,6 @@ function recupererToken() {
     return localStorage.getItem('token');
 }
 
-/* Affichage et fermeture clic sur croix ou extérieur de la modale "galerie photo" */
-const boutonModifier = document.querySelector('.projets-modifier button');
-const modaleModifier = document.getElementById('modale-modifier');
-const overlay = document.querySelector('.overlay');
-
-boutonModifier.addEventListener('click', function() {
-    modaleModifier.style.display = 'flex';
-    overlay.classList.remove('display-none')
-})
-
-const croixFermer1 = document.querySelector('.fermer-modale-js');
-const croixFermer2 = document.querySelector('.fermer-modale2-js');
-
-croixFermer1.addEventListener('click', function() {
-    modaleModifier.style.display = 'none';
-    overlay.classList.add('display-none')
-})
-
-croixFermer2.addEventListener('click', function() {
-    modaleModifier.style.display = 'none';
-    overlay.classList.add('display-none')
-})
-
-overlay.addEventListener('click', function() {
-    modaleModifier.style.display = 'none';
-    overlay.classList.add('display-none')
-})
-
 /* Affichage de la galerie dans la modale */
 async function afficherTravauxModale() {
 
@@ -82,6 +54,34 @@ async function afficherTravauxModale() {
 }
 
 afficherTravauxModale()
+
+/* Affichage et fermeture clic sur croix ou extérieur de la modale "galerie photo" */
+const boutonModifier = document.querySelector('.projets-modifier button');
+const modaleModifier = document.getElementById('modale-modifier');
+const overlay = document.querySelector('.overlay');
+
+boutonModifier.addEventListener('click', function() {
+    modaleModifier.style.display = 'flex';
+    overlay.classList.remove('display-none')
+})
+
+const croixFermer1 = document.querySelector('.fermer-modale-js');
+const croixFermer2 = document.querySelector('.fermer-modale2-js');
+
+croixFermer1.addEventListener('click', function() {
+    modaleModifier.style.display = 'none';
+    overlay.classList.add('display-none')
+})
+
+croixFermer2.addEventListener('click', function() {
+    modaleModifier.style.display = 'none';
+    overlay.classList.add('display-none')
+})
+
+overlay.addEventListener('click', function() {
+    modaleModifier.style.display = 'none';
+    overlay.classList.add('display-none')
+})
 
 /* Affichage du lien logout uniquement si je suis connecté + déconnexion */
 function LogOut() {
@@ -141,8 +141,6 @@ btnRetour.addEventListener('click', function () {
 });
 
 /* Affichage de la liste des catégories dans la modale "ajout photo" */
-const selectElement = document.getElementById('input-categorie'); 
-
 fetch('http://localhost:5678/api/categories')
     .then(response => response.json())
     .then(data => {
@@ -219,13 +217,10 @@ document.getElementById('formAjout').addEventListener('submit', function(event) 
     afficherTravauxModale();
     document.getElementById('image-preview').innerHTML = '';
     document.getElementById('image-upload-indication').style.display = 'flex';
+    document.getElementById('input-titre').value = "";
+    document.getElementById('input-categorie').value = "";
     });
 });
-
-function submitFormAjout () {
-    document.formAjout.submit();
-    document.formAjout.reset();
-}
 
 /* Messages de succès à l'ajout ou suppression d'une photo */
 function afficherMessageSuccesSupp(message) {
@@ -240,23 +235,20 @@ function afficherMessageSuccesAjout(message) {
 document.getElementById('btn-add').addEventListener('change', function(event) {
     let imageInput = event.target.files[0];
     let imgPreviewContainer = document.getElementById('image-preview');
-    let imageUploadIndication = document.getElementById('image-upload-indication')
+    let imageUploadIndication = document.getElementById('image-upload-indication');
 
     if (imageInput) {
         let reader = new FileReader();
         reader.onload = function(e) {
-            // Je crée l'élément <img>
             let imgPreview = document.createElement('img');
             imgPreview.src = e.target.result;
             imgPreview.alt = "Aperçu de l'image chargée";
             imgPreview.style.maxWidth = "129px";
             imgPreview.style.display = 'block';
 
-            // J'ajoute l'élément <img> au conteneur d'aperçu d'image
             imgPreviewContainer.innerHTML = '';
             imgPreviewContainer.appendChild(imgPreview);
 
-            // Je cache le contenu de téléchargement d'image
             imageUploadIndication.style.display = 'none';
         };
         reader.readAsDataURL(imageInput);

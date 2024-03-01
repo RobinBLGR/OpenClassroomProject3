@@ -33,7 +33,29 @@ async function afficherTravaux() {
 
 afficherTravaux();
 
-/* Filtre des travaux en fonction de la catégorie sélectionnée */
+/* Affichage dynamique des catégories + couleur sur bouton filtre de la catégorie sélectionnéeq */
+const filters = document.getElementById("filtres");
+fetch("http://localhost:5678/api/categories")
+    .then(response => response.json())
+    .then(categories => {
+        categories.unshift({
+            id: 0,
+            name: "Tous"
+        });
+        for (const category of categories) {
+            const filter = document.createElement("button");
+            filter.innerText = category.name;
+            filter.id = `categorie-${category.id}`;
+            filter.classList.add("btn-filtre");
+            if (category.id === 0) {
+                filter.classList.add("active");
+            }
+            filters.appendChild(filter);
+            filter.addEventListener("click", filtreTravaux);
+        }
+    });
+
+    /* Filtre des travaux en fonction de la catégorie sélectionnée */
 function filtreTravaux() {
     const etiquette = this.id.split("-")[1];
     const filters = document.querySelectorAll(".btn-filtre"); // Sélectionnez tous les boutons filtres
@@ -58,28 +80,6 @@ function filtreTravaux() {
         }
     }
 }
-
-/* Affichage en couleur uniquement du bouton filtre de la catégorie sélectionnéeq */
-const filters = document.getElementById("filtres");
-fetch("http://localhost:5678/api/categories")
-    .then(response => response.json())
-    .then(categories => {
-        categories.unshift({
-            id: 0,
-            name: "Tous"
-        });
-        for (const category of categories) {
-            const filter = document.createElement("button");
-            filter.innerText = category.name;
-            filter.id = `categorie-${category.id}`;
-            filter.classList.add("btn-filtre");
-            if (category.id === 0) {
-                filter.classList.add("active");
-            }
-            filters.appendChild(filter);
-            filter.addEventListener("click", filtreTravaux);
-        }
-    });
 
 /* Récupération du token */
 const token = localStorage.getItem("token");
