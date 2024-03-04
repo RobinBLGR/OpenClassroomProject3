@@ -392,7 +392,7 @@ footer nav ul {
 
 .modale-galerie-affichage {
 	position: fixed;
-	top: 5px;
+	top: 2%;
 	left: 50%;
 	transform: translate(-50%);
 	display: flex;
@@ -401,7 +401,7 @@ footer nav ul {
 	align-items: center;
 	width: 630px;
 	height: 688px;
-	margin-top: 80px;
+	margin-top: 5%;
 	border-radius: 10px;	
 	border-radius: 10px;
 	gap: 35px;
@@ -482,7 +482,7 @@ hr {
 /* Modale "ajouter photo" */
 .modale-galerie-ajout {
 	position: fixed;
-	top: 5px;
+	top: 2%;
 	left: 50%;
 	transform: translate(-50%);
 	display: flex;
@@ -491,7 +491,7 @@ hr {
 	align-items: center;
 	width: 630px;
 	height: 688px;
-	margin-top: 80px;
+	margin-top: 5%;
 	border-radius: 10px;	
 	border-radius: 10px;
 	gap: 20px;

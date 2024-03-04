@@ -24,5 +24,6 @@ document.getElementById("formulaire-login").addEventListener("submit", function 
     })
     .catch(error => {
         document.getElementById("erreur-connexion").textContent = error.message;
+        console.error("Erreur dans l'identifiant ou le mot de passe");
     });
 });

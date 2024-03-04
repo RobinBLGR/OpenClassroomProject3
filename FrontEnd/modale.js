@@ -55,7 +55,7 @@ async function afficherTravauxModale() {
 
 afficherTravauxModale()
 
-/* Affichage et fermeture clic sur croix ou extérieur de la modale "galerie photo" */
+/* Modale - Affichage et fermeture clic sur croix ou extérieur de la modale "galerie photo" */
 const boutonModifier = document.querySelector('.projets-modifier button');
 const modaleModifier = document.getElementById('modale-modifier');
 const overlay = document.querySelector('.overlay');
@@ -82,6 +82,24 @@ overlay.addEventListener('click', function() {
     modaleModifier.style.display = 'none';
     overlay.classList.add('display-none')
 })
+
+/* Changement de la modale "galerie photo" à "ajouter photo" au clic sur "ajouter" */
+const bouton = document.querySelector('.button-ajouter');
+const modaleGalerie = document.querySelector('.modale-galerie-affichage')
+const modaleAjout = document.querySelector('.modale-galerie-ajout');
+
+bouton.addEventListener('click', function() {
+    modaleGalerie.style.display = 'none';
+    modaleAjout.style.display = 'flex';
+});
+
+/* Changement de la modale "ajouter photo" à "galerie photo" au clic sur la flèche retour */
+const btnRetour = document.querySelector('.retour-modale-js')
+
+btnRetour.addEventListener('click', function () {
+    modaleAjout.style.display = 'none';
+    modaleGalerie.style.display = 'flex';
+});
 
 /* Affichage du lien logout uniquement si je suis connecté + déconnexion */
 function LogOut() {
@@ -121,24 +139,6 @@ const SupprimerTravaux = async (id) => {
 afficherTravaux();
 afficherTravauxModale();
 }
-
-/* Changement de la modale "galerie photo" à "ajouter photo" au clic sur "ajouter" */
-const bouton = document.querySelector('.button-ajouter');
-const modaleGalerie = document.querySelector('.modale-galerie-affichage')
-const modaleAjout = document.querySelector('.modale-galerie-ajout');
-
-bouton.addEventListener('click', function() {
-    modaleGalerie.style.display = 'none';
-    modaleAjout.style.display = 'flex';
-});
-
-/* Changement de la modale "ajouter photo" à "galerie photo" au clic sur la flèche retour */
-const btnRetour = document.querySelector('.retour-modale-js')
-
-btnRetour.addEventListener('click', function () {
-    modaleAjout.style.display = 'none';
-    modaleGalerie.style.display = 'flex';
-});
 
 /* Affichage de la liste des catégories dans la modale "ajout photo" */
 fetch('http://localhost:5678/api/categories')
